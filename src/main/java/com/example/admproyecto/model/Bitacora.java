@@ -14,42 +14,68 @@ public class Bitacora {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, length = 45, name = "fecha_inicio") 
+	@Column(nullable = false, length = 10, name = "fecha_inicio") 
     private String fechaInicio;
 	
-	@Column(nullable = false, length = 45, name = "hora_inicio") 
+	@Column(nullable = false, length = 10, name = "fechaFinal") 
+    private String fechaFinal;
+	
+	@Column(nullable = false, length = 10, name = "hora_inicio") 
     private String hora_inicio;
 	
-	@Column(nullable = false, length = 45, name = "hora_final") 
+	@Column(nullable = false, length = 10, name = "hora_final") 
     private String hora_final;
 	
-	@Column(nullable = false, name = "interrupcion")
-	private int interrupcion;
+	@Column(nullable = false, length = 10, name = "interrupcion")
+	private String interrupcion;
 	
 	@Column(nullable = false, length = 45, name = "etapa")
 	private String etapa;
 	
-	@Column(nullable = false, length = 45, name = "actividad_no_planeada")
-	private String actividad_no_planeada;
-	
-	@Column(nullable = false, length = 45, name = "proyecto")
-	private String proyecto;
+	@Column(nullable = false, length = 45, name = "descripcion_actividada")
+	private String descripcion_actividada;
 	
 	@Column(nullable = false, length = 45, name = "artefacto")
 	private String artefacto;
 	
+	
 	public Bitacora() {}
 
-	public Bitacora(String fechaInicio, String hora_inicio, String hora_final, int interrupcion, String etapa,
-			String actividad_no_planeada, String proyecto, String artefacto) {
+	public Bitacora(String fechaInicio, String fechaFinal, String hora_inicio, String hora_final, String interrupcion,
+			String etapa, String descripcion_actividada, String artefacto) {
+		super();
 		this.fechaInicio = fechaInicio;
+		this.fechaFinal = fechaFinal;
 		this.hora_inicio = hora_inicio;
 		this.hora_final = hora_final;
 		this.interrupcion = interrupcion;
 		this.etapa = etapa;
-		this.actividad_no_planeada = actividad_no_planeada;
-		this.proyecto = proyecto;
+		this.descripcion_actividada = descripcion_actividada;
 		this.artefacto = artefacto;
+	}
+
+	public String getDescripcion_actividada() {
+		return descripcion_actividada;
+	}
+
+	public void setDescripcion_actividada(String descripcion_actividada) {
+		this.descripcion_actividada = descripcion_actividada;
+	}
+
+	public String getArtefacto() {
+		return artefacto;
+	}
+
+	public void setArtefacto(String artefacto) {
+		this.artefacto = artefacto;
+	}
+
+	public String getFechaFinal() {
+		return fechaFinal;
+	}
+
+	public void setFechaFinal(String fechaFinal) {
+		this.fechaFinal = fechaFinal;
 	}
 
 	public Long getId() {
@@ -84,11 +110,11 @@ public class Bitacora {
 		this.hora_final = hora_final;
 	}
 
-	public int getInterrupcion() {
+	public String getInterrupcion() {
 		return interrupcion;
 	}
 
-	public void setInterrupcion(int interrupcion) {
+	public void setInterrupcion(String interrupcion) {
 		this.interrupcion = interrupcion;
 	}
 
@@ -99,30 +125,4 @@ public class Bitacora {
 	public void setEtapa(String etapa) {
 		this.etapa = etapa;
 	}
-
-	public String getActividad_no_planeada() {
-		return actividad_no_planeada;
-	}
-
-	public void setActividad_no_planeada(String actividad_no_planeada) {
-		this.actividad_no_planeada = actividad_no_planeada;
-	}
-
-	public String getProyecto() {
-		return proyecto;
-	}
-
-	public void setProyecto(String proyecto) {
-		this.proyecto = proyecto;
-	}
-
-	public String getArtefacto() {
-		return artefacto;
-	}
-
-	public void setArtefacto(String artefacto) {
-		this.artefacto = artefacto;
-	}
-	
-	
 }

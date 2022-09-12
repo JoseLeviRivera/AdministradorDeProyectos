@@ -12,6 +12,9 @@
 <body>
 	<ul class="nav justify-content-center bg-dark">
 		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link active" aria-current="page" th:href="@{/proyectos}">Proyectos</a>
 		</li>
 		<li class="nav-item">
@@ -63,13 +66,16 @@
 
 						<div class="form-group">
 							<label>Estado del Proyecto</label>
-							<input type="number" th:field="*{estado}" class="form-control" id="estatus"
-								placeholder="Estado del Proyecto">
+							<br>
+							<input type="radio" id="estado" name="estado" value="Activo" th:field="*{estado}">
+							<label for="activo">Activo</label>
+							<input type="radio" id="inactivo" name="estado" value="Inactivo" th:field="*{estado}">
+							<label for="inactivo">Inactivo</label><br>
 							</br>
 						</div>
 
 						<div class="box-footer">
-							<button type="submit" class="btn btn-success">Actualizar</button>
+							<button type="submit" class="btn btn-danger">Actualizar</button>
 						</div>
 						<br>
 					</form>
