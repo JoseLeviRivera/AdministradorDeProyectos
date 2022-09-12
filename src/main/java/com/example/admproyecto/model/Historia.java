@@ -36,11 +36,11 @@ public class Historia {
 		
 	}
 
-	public Historia(Integer id, String nombre, String descripción, String peso, String idUsuario,
+	public Historia(Integer id, String nombre, String descripcion, String peso, String idUsuario,
 			String estado, Proyecto proyectoAsociado) {	
 		this.id = id;
 		this.nombre = nombre;		
-		this.descripcion = descripción;
+		this.descripcion = descripcion;
 		this.peso = peso;
 		this.idUsuario = idUsuario;
 		this.estado = estado;
@@ -67,8 +67,8 @@ public class Historia {
 		return descripcion;
 	}
 
-	public void setDescripcion(String descripción) {
-		this.descripcion = descripción;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public String getPeso() {
