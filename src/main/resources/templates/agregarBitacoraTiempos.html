@@ -12,6 +12,9 @@
 <body>
 	<ul class="nav justify-content-center bg-dark">
 		<li class="nav-item">
+			<a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
+		</li>
+		<li class="nav-item">
 			<a class="nav-link active" aria-current="page" th:href="@{/proyectos}">Proyectos</a>
 		</li>
 		<li class="nav-item">
@@ -31,7 +34,7 @@
 						<div class="row">
 							<div class="col">
 								<div class="form-group">
-									<label>Fecha</label>
+									<label>Fecha Inicio</label>
 									</br>
 									<input type="date" class="form-control" id="fecha" name="fechaInicio">
 									</br>
@@ -39,15 +42,23 @@
 							</div>
 							<div class="col">
 								<div class="form-group">
-									<label>Hora Inicio</label>
+									<label>Fecha Final</label>
 									</br>
-									<input type="time" class="form-control" id="hora_inicio" name="hora_inicio">
+									<input type="date" class="form-control" id="fechaFinal" name="fechaFinal">
 									</br>
 								</div>
 							</div>
 						</div>
 
 						<div class="row">
+							<div class="col">
+									<div class="form-group">
+										<label>Hora Inicio</label>
+										</br>
+										<input type="time" class="form-control" id="hora_inicio" name="hora_inicio">
+										</br>
+									</div>
+							</div>
 							<div class="col">
 								<div class="form-group">
 									<label>Hora Final</label>
@@ -56,24 +67,24 @@
 									</br>
 								</div>
 							</div>
-							<div class="col">
-								<div class="form-group">
-									<label>Interrupcion</label>
-									</br>
-									<input type="number" class="form-control" id="interrupcion" name="interrupcion">
-									</br>
-								</div>
-							</div>
 						</div>
 
 						<div class="row">
+							<div class="col">
+									<div class="form-group">
+										<label>Interrupcion</label>
+										</br>
+										<input type="time" class="form-control" id="interrupcion" name="interrupcion">
+										</br>
+									</div>
+							</div>
 							<div class="col">
 								<div class="form-group">
 									<label>Etapa</label>
 									</br>
 									<select class="form-select" aria-label="Default select example" id="Etapa"
 										name="etapa">
-										<option selected>Seleccione una etapa</option>
+										<option selected disabled="disabled" >Seleccione una etapa</option>
 										<option value="planeacion">PlANEACIÓN</option>
 										<option value="Diseño">DISEÑO</option>
 										<option value="Revision de diseño">REVISION DE DISEÑO</option>
@@ -86,39 +97,26 @@
 									</br>
 								</div>
 							</div>
-
-							<div class="col">
-								<div class="form-group">
-									<label>Actividad No Planeada</label>
-									</br>
-									<input type="text" class="form-control" id="actividad_no_planeada"
-										name="actividad_no_planeada">
-									</br>
+							<div class="row">
+								<div class="col">
+										<div class="form-group">
+											<label>Descripcion de la actividad</label>
+											</br>
+											<input type="text" class="form-control" id="descripcion_actividada" name="descripcion_actividada" placeholder="Ingrese al descripcion de la actividad">
+											</br>
+										</div>
 								</div>
-							</div>
+								<div class="col">
+									<div class="form-group">
+											<label>artefacto</label>
+											</br>
+											<input type="text" class="form-control" id="artefacto" name="artefacto" placeholder="Ingrese al artefacto de la actividad">
+											</br>
+										</div>
+								</div>
 						</div>
-
-						<div class="row">
-							<div class="col">
-								<div class="form-group">
-									<label>Proyecto</label>
-									</br>
-									<input type="text" class="form-control" id="proyecto" name="proyecto">
-									</br>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-group">
-									<label>Artefacto</label>
-									</br>
-									<input type="text" class="form-control" id="artefacto" name="artefacto">
-									</br>
-								</div>
-							</div>
-						</div>
-
 						<div class="box-footer">
-							<button type="submit" class="btn btn-success">Registrar</button>
+							<button type="submit" class="btn btn-danger">Registrar</button>
 						</div>
 						<br>
 					</form>

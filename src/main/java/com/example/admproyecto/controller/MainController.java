@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.admproyecto.model.Bitacora;
 import com.example.admproyecto.model.Sprint;
 import com.example.admproyecto.servicios.BitacoraServicio;
+import com.example.admproyecto.servicios.ProyectoServicios;
 import com.example.admproyecto.servicios.SprintServicio;
 
 @Controller
@@ -23,6 +24,9 @@ public class MainController {
 	
 	@Autowired
 	private BitacoraServicio bitacoraServicio;
+	
+	@Autowired
+	private ProyectoServicios pryServ;
 
 	@GetMapping(path = "/")
 	public String home(Model model) {
@@ -45,6 +49,7 @@ public class MainController {
 	public  String agregarSprintForm(Model model) {
 		Sprint s = new Sprint();
 		model.addAttribute("sprint", s);
+		model.addAttribute("proyectos", pryServ.listarProyectos());
 		return "insertarSprint";
 	}
 	

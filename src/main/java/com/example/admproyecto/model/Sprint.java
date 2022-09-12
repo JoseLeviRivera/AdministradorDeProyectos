@@ -1,15 +1,11 @@
 package com.example.admproyecto.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name  ="sprint")
@@ -28,10 +24,10 @@ public class Sprint {
 	@Column(nullable = false, name = "dias")
     private Integer dias; 
 	@Column(nullable = false, name = "estado")
-    private int estado;
+    private String estado;
     
     public Sprint() {}
-	public Sprint(String nombre, String descripcion, String fecha_inicial, String fecha_final, Integer dias, int estado) {
+	public Sprint(String nombre, String descripcion, String fecha_inicial, String fecha_final, Integer dias, String estado) {
 		super();
 		this.nombre = nombre;
 		this.descripcion = descripcion;
@@ -78,10 +74,10 @@ public class Sprint {
 	public void setDias(Integer dias) {
 		this.dias = dias;
 	}
-	public int getEstado() {
+	public String getEstado() {
 		return estado;
 	}
-	public void setEstado(int estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 
