@@ -27,9 +27,9 @@ public class HistoriaController {
 	}	
 	
 	@GetMapping("/historias/nuevo")
-	public String mostrarVistaRegistro(Model modelo, Model modelo2) {
+	public String mostrarVistaRegistro(Model modelo) {
 		Historia historia = new Historia();
-		modelo2.addAttribute("proyectos", pryServ.listarProyectos());
+		modelo.addAttribute("proyectos", pryServ.listarProyectos());
 		modelo.addAttribute("historia", historia);
 		return "historiaNueva";
 	}	

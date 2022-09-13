@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Table (name = "proyectos")
 public class Proyecto {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_Proyecto")	
 	private Integer id;
 	@Column(nullable = false, length = 50)

@@ -9,21 +9,7 @@
 </head>
 
 <body>
-	<ul class="nav justify-content-center bg-dark">
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" th:href="@{/proyectos}">Proyectos</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" th:href="@{/Bitacora/listar}">Bitácora de Tiempos</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" th:href="@{/Sprint/listar}">Sprints</a>
-		</li>
-	</ul>
-	<br>
+	<div th:replace="barMenu :: menu "></div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
@@ -35,18 +21,15 @@
 							<input type="text" name="nombre" th:field="*{nombre}" class="form-control" required>
 						</div>
 						<div>
-							<input type="radio" id="activo" name="estado" value="Activo" th:field="*{estado}">
+							<input type="radio" id="activo" name="estado" value="Activo" th:field="*{estado}" required>
 							  <label for="activo">Activo</label>
 							  <input type="radio" id="inactivo" name="estado" value="Inactivo" th:field="*{estado}">
 							  <label for="inactivo">Inactivo</label><br>
 						</div>
-						<!--<div class="form-group">
-								<label>Estado: </label>
-								<input type="text" name="estado"  th:field="*{estado}" class="form-control" required>
-							</div>-->
 						<br>
+						
 						<div class="box-footer">
-							<button type="submit" class="btn btn-success">Actualizar</button>
+							<button type="submit" class="btn btn-danger">Actualizar</button>
 						</div>
 						<br>
 					</form>

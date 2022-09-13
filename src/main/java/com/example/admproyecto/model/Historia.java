@@ -1,5 +1,9 @@
 package com.example.admproyecto.model;
 
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,15 +11,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table (name = "historias")
 public class Historia {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_Historia")
 	private Integer id;
 	@Column(nullable = false, length = 50)
@@ -31,21 +35,40 @@ public class Historia {
 	@JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)	
 	private Proyecto proyectoAsociado;
-	
-	public Historia() {
-		
-	}
 
-	public Historia(Integer id, String nombre, String descripcion, String peso, String idUsuario,
-			String estado, Proyecto proyectoAsociado) {	
-		this.id = id;
-		this.nombre = nombre;		
+	@JsonBackReference
+	@OneToMany(
+			mappedBy = "historia",
+			cascade = CascadeType.ALL, 
+			orphanRemoval = true, 
+			fetch = FetchType.LAZY)
+	private List<Bitacora> listaBitacoras;
+	
+	
+	public Historia() {}
+	
+
+	public Historia(String nombre, String descripcion, String peso, String idUsuario, String estado,
+			Proyecto proyectoAsociado, List<Bitacora> listaBitacoras) {
+		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.peso = peso;
 		this.idUsuario = idUsuario;
 		this.estado = estado;
 		this.proyectoAsociado = proyectoAsociado;
+		this.listaBitacoras = listaBitacoras;
 	}
+
+
+	public List<Bitacora> getListaBitacoras() {
+		return listaBitacoras;
+	}
+
+
+	public void setListaBitacoras(List<Bitacora> listaBitacoras) {
+		this.listaBitacoras = listaBitacoras;
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -55,53 +78,66 @@ public class Historia {
 		this.id = id;
 	}
 
+
 	public String getNombre() {
 		return nombre;
 	}
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+
 	public String getDescripcion() {
 		return descripcion;
 	}
+
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
+
 	public String getPeso() {
 		return peso;
 	}
+
 
 	public void setPeso(String peso) {
 		this.peso = peso;
 	}
 
+
 	public String getIdUsuario() {
 		return idUsuario;
 	}
+
 
 	public void setIdUsuario(String idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
+
 	public String getEstado() {
 		return estado;
 	}
 
+
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+
+
 	public Proyecto getProyectoAsociado() {
 		return proyectoAsociado;
 	}
 
+
 	public void setProyectoAsociado(Proyecto proyectoAsociado) {
 		this.proyectoAsociado = proyectoAsociado;
 	}
+
 
 	@Override
     public boolean equals(Object o) {
@@ -110,6 +146,7 @@ public class Historia {
         if (!(o instanceof Historia))
             return false;
         return proyectoAsociado.getId() == ((Historia) o).getProyectoAsociado().getId();
+        
     }
 
     @Override

@@ -8,22 +8,14 @@
 		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<title> Inicio</title>
 </head>
-
 <body>
-	<ul class="nav justify-content-center bg-dark">
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" th:href="@{/proyectos}">Proyectos</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" th:href="@{/Bitacora/listar}">Bitácora de Tiempos</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" th:href="@{/Sprint/listar}">Sprints</a>
-		</li>
-	</ul>
+	<div th:replace="barMenu :: menu "></div>
+	<h1 style="text-align: center;">Bienvenido</h1>
+	<h3 style="text-align: center;">Sistema de Administración de proyectos</h3>
+	<div class="container" style="text-align: center;">
+		<a th:href="@{/Bitacora/agregar}" class="btn btn-danger">Registrar Tiempos</a>
+		</br>
+	</div>
 </body>
 
 </html>

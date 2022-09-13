@@ -11,33 +11,16 @@
 </head>
 
 <body>
-	<ul class="nav justify-content-center bg-dark">
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" th:href="@{/}">Inicio</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" aria-current="page" th:href="@{/proyectos}">Proyectos</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" th:href="@{/Bitacora/listar}">Bitácora de Tiempos</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link active" th:href="@{/Sprint/listar}">Sprints</a>
-		</li>
-	</ul>
-	<br>
+	<div th:replace="barMenu :: menu "></div>
 	<h3 style="text-align: center;">Listar Bitácora de tiempos</h3>
 	<div class="container">
 		<a th:href="@{/Bitacora/agregar}" class="btn btn-danger"><i class="fa-solid fa-plus"></i></a>
-		<!--
-		<a th:href="@{/Bitacora/agregar}" class="btn btn-success">Agregar</a>
-		-->
 		</br>
 	</div>
 	</br>
 	<div class="container">
-		<table class="table table-striped table-bordered">
-			<thead class="table-dark" style="text-align: center;">
+		<table class="table table-striped table-bordered"  style="text-align: center;">
+			<thead class="table-dark">
 				<tr>
 					<th>fecha de Inicio</th>
 					<th>fecha de Final</th>
@@ -47,11 +30,12 @@
 					<th>Etapa</th>
 					<th>Descripcion de la actividad</th>
 					<th>Artefacto</th>
+					<th>Historia</th>
 					<th></th>
 					<th></th>
 				</tr>
 			</thead>
-			<tbody  style="text-align: center;">
+			<tbody>
 				<tr th:each="bitacora: ${ListaBitacora}">
 					<td th:text="${bitacora.fechaInicio}"></td>
 					<td th:text="${bitacora.fechaFinal}"></td>
@@ -61,11 +45,12 @@
 					<td th:text="${bitacora.etapa}"></td>
 					<td th:text="${bitacora.descripcion_actividada}"></td>
 					<td th:text="${bitacora.artefacto}"></td>
+					<td th:text="${bitacora.historia.nombre}"></td>
 					<td>
-						<a th:href="@{/Bitacora/actualizar/{id}(id=${bitacora.id})}"><i class="fa-solid fa-pencil"></i></a>
+						<a th:href="@{/Bitacora/actualizar/{id}(id=${bitacora.id})}" class="btn btn-danger"><i class="fa-solid fa-pencil"></i></a>
 					</td>
 					<td>
-						<a th:href="@{/Bitacora/eliminar/{id}(id=${bitacora.id})}" ><i class="fa-solid fa-trash"></i></a>
+						<a th:href="@{/Bitacora/eliminar/{id}(id=${bitacora.id})}" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
 					</td>
 				</tr>
 			</tbody>
